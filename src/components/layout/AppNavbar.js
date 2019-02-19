@@ -7,7 +7,8 @@ class AppNavbar extends Component {
     return (
       <nav className="navbar navbar-expand-md navbar-dark bg-primary mb-4" >
         <div className="container" >
-          <Link to="navbar-brand" >
+
+          <Link to="/" className="navbar-brand">
             ClientPanel
           </Link>
           < button className="navbar-toggler"
