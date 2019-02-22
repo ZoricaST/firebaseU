@@ -55,17 +55,20 @@ class AppNavbar extends Component {
           {isAuthenticated ? (
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a herf="#!" className="nav-link">
+                <a href="#!" className="nav-link">
                   {auth.email}
                 </a>
 
               </li>
 
               <li className="nav-item">
-                <a herf="#!" className="nav-link" onClick={this.onLogoutClick}>
+                <a
+                  href="#!"
+                  className="nav-link"
+                  onClick={this.onLogoutClick}
+                >
                   Logout
-            </a>
-
+                  </a>
               </li>
             </ul>
           ) : null}

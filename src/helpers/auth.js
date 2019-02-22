@@ -1,10 +1,8 @@
 import locationHelperBuilder from 'redux-auth-wrapper/history4/locationHelper';
-import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect'
-import createHistory from 'history/createBrowserHistory'
-import LoadingScreen from '../components/layout/Spinner'; // change it to your custom component
+import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect';
+import LoadingScreen from '../components/layout/Spinner';
 
 const locationHelper = locationHelperBuilder({});
-const history = createHistory()
 
 export const UserIsAuthenticated = connectedRouterRedirect({
     wrapperDisplayName: 'UserIsAuthenticated',
@@ -16,7 +14,6 @@ export const UserIsAuthenticated = connectedRouterRedirect({
         !auth.isLoaded || isInitializing === true,
     authenticatedSelector: ({ firebase: { auth } }) =>
         auth.isLoaded && !auth.isEmpty
-
 });
 
 export const UserIsNotAuthenticated = connectedRouterRedirect({
@@ -28,9 +25,5 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
     authenticatingSelector: ({ firebase: { auth, isInitializing } }) =>
         !auth.isLoaded || isInitializing === true,
     authenticatedSelector: ({ firebase: { auth } }) =>
-        auth.isLoaded && auth.isEmpty,
-    redirectAction: newLoc => (dispatch) => {
-        browserHistory.replace(newLoc); // or routerActions.replace
-        dispatch({ type: 'UNAUTHED_REDIRECT' });
-    },
+        auth.isLoaded && auth.isEmpty
 });
